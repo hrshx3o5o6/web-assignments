@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Overlapping Cards</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            position: relative;
+            height: 600px;
+        }
+
+        .card {
+            position: absolute;
+            width: 200px;
+            padding: 20px;
+            background: lightblue;
+            z-index: 10;
+        }
+
+        .card1 {
+            top: 100px;
+            left: 100px;
+        }
+
+        .card2 {
+            top: 140px;   /* small shift down */
+            left: 160px;  /* small shift right */
+            background: lightgreen;
+        }
+
+        .card3 {
+            top: 180px;
+            left: 220px;
+            background: lightcoral;
+        }
+
+        .tooltip {
+            position: absolute;
+            top: 10px;
+            left: 210px;
+            padding: 5px;
+            background: yellow;
+            display: none;
+            z-index: 20;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card card1">
+        Product 1
+        <div class="tooltip">Details about Product 1</div>
+    </div>
+
+    <div class="card card2">
+        Product 2
+        <div class="tooltip">Details about Product 2</div>
+    </div>
+
+    <div class="card card3">
+        Product 3
+        <div class="tooltip">Details about Product 3</div>
+    </div>
+
+    <script>
+        let cards = document.querySelectorAll(".card");
+
+        cards.forEach(function(card) {
+            let tooltip = card.querySelector(".tooltip");
+
+            card.addEventListener("mouseenter", function() {
+                tooltip.style.display = "block";
+                tooltip.style.zIndex = "999";
+            });
+
+            card.addEventListener("mouseleave", function() {
+                tooltip.style.display = "none";
+            });
+        });
+    </script>
+
+</body>
+</html>
