@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 49</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <ul id="taskList">
+        <li>Task 1</li>
+        <li>Task 2</li>
+        <li>Task 3</li>
+    </ul>
+    <button id="addTask">Add Task</button>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            $('#taskList').on('click', 'li', function() {
+                $(this).toggleClass('completed');
+            });
+            $('#addTask').click(function() {
+                $('#taskList').append('<li>New Task</li>');
+                $('#taskList li:first').text('Updated');
+            });
+        });
+    </script>
+</body>
+</html>

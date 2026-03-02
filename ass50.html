@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 50</title>
+    <style>
+        .fadebox {
+            width: 300px;
+            border: 1px solid whitesmoke;
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+            transition: opacity 0.3s;
+        }
+        .fadebox img {
+            width: 100%;
+            border-radius: 6px;
+            transition: opacity 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="fadebox">
+        <p>Text</p>
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Nature">
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            $('.fadebox').mouseenter(function() {
+                $(this).find('img').fadeTo(300, 0.5);
+            }).mouseleave(function() {
+                $(this).find('img').fadeTo(300, 1);
+            });
+        });
+    </script>
+</body>
+</html>
